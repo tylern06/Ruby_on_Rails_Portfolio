@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>Portfolio</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js" %>
+	  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js" %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	  
+	</head>
+	<body>
+		<!-- Navigation start -->
+			<header class="header">
+				<nav class="navbar navbar-custom" role="navigation">
+					<div class="container">
+						<div class="navbar-header page-scroll">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand page-scroll" href="#home">Tyler Nguyen</a>
+						</div>
+						<div class="collapse navbar-collapse" id="custom-collapse">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a class="page-scroll" href="#home">home</a></li>
+								<li><a class="page-scroll" href="#portfolio">Projects</a></li>
+								<li><a class="page-scroll" href="#skills">Skills</a></li>
+								<li><a class="page-scroll" href="#about">About</a></li>
+								<li><a class="page-scroll" href="#contact">Contact</a></li>
+							</ul>
+						</div>
+					</div><!-- .container -->
+				</nav>
+			</header>
+			<div id="preloader">
+				<div id="status">
+					<div class="status-mes"></div>
+				</div>
+			</div>
+			<!-- Navigation end -->
+		<%= yield %>
+	</body>
+</html>
+

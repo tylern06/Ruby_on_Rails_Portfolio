@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+require "rubygems"
+require "bundler/setup"
+require "mailman"
+
+Mailman.config.logger = Logger.new("log/mailman.log")
+
+
+Mailman.config.pop3 = {
+  :username => 'tynguyen06@gmail.com',
+  :password => 'password',
+  :server   => 'pop.gmail.com',
+  :port     => 995, # you can usually omit this, but it's there
+  :ssl      => true # defaults to false
+}
+
+Mailman::Application.run do
+	default do
+		begin 
+			Ticket.receive_mail(message)
+		rescue Exception => e 
+			Mailman.logger.error "Exception occurred while receiving messages: \n #{message}"
+			Mailman.logger.error [e, *e.backtrace].join("\n")
+		end
+	end 
+end
