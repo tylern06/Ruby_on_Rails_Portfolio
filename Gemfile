@@ -49,3 +49,4 @@ end
 gem 'mailman', require: false
 
 gem 'hirb'
+gem "font-awesome-rails"
